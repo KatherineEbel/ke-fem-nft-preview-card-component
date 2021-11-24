@@ -6,7 +6,7 @@ This is a solution to the [NFT preview card component challenge on Frontend Ment
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
   - [Built with](#built-with)
 - [Author](#author)
@@ -20,15 +20,15 @@ Users should be able to:
 - View the optimal layout depending on their device's screen size
 - See hover states for interactive elements
 
-### Screenshot
+### Screenshots
 
-![Mobile](./images/mobile.png)
-![Desktop](./images/desktop.png)
+![Desktop](images/desktop.png)
+![Mobile](images/mobile.png)
 
 ### Links
 
 - Solution URL: [Github Repo](https://github.com/KatherineEbel/ke-fem-nft-preview-card-component.git)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Github Page](https://katherineebel.github.io/ke-fem-nft-preview-card-component/)
 
 ### Built with
 
