@@ -1,0 +1,248 @@
+/*** The new CSS Reset - version 1.4.0 (last updated 16.11.2021) ***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+:where([contenteditable]){
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+:root {
+  --cyan: #00FFF8;
+  --soft-blue:  #8BACD9;
+  --main-bg:  #0D192C;
+  --card-bg: #15263F;
+  --line: #2E405A;
+  --white:  #FFFFFF;
+  
+  --fs-base: .9375rem;
+  --fs-body: 1.125rem;
+  --fs-heading: 1.375rem;
+
+  --lh-base: 1.18125rem;
+  --lh-body: 1.625rem;
+  --lh-heading: 1.7325rem;
+  /*--fs-heading: 1.375rem;*/
+}
+
+
+/* --------------
+  Base Styles
+---------------*/
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    background: var(--main-bg);
+    color: var(--soft-blue);
+    font-family: 'Outfit', sans-serif;
+    font-size: var(--fs-base);
+    font-weight: 400;
+  }
+
+.wrapper {
+  padding: 0 1.5rem;
+}
+
+/* --------------
+  Utility
+---------------*/
+
+.text-base {
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+}
+
+.text-body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.text-heading {
+  color: var(--white);
+  font-size: var(--fs-heading);
+  line-height: var(--lh-heading);
+  font-weight: 600;
+  transition: color 500ms ease-in-out;
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* --------------
+ Card
+---------------*/
+
+.card {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1.5rem;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  box-shadow: 0 1.5625rem 3.125rem rgba(0, 0, 0, 0.0952917);
+  border-radius: .9375rem;
+  max-width: 21.875rem;
+}
+
+.card--header {
+  position: relative;
+}
+
+.card--header a {
+  cursor: pointer;
+}
+
+.card--header a:after {
+  content: '';
+  background: center no-repeat url("../images/icon-view.svg") hsla(178, 100%, 50%, 0.5);
+  display: block;
+  position: absolute;
+  inset: 0 0 0 0;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: center;
+  transition: opacity 500ms ease-in-out;
+}
+
+.card--header a:hover:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+.card--body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card--heading {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.card--heading h1 {
+  color: var(--white);
+  font-size: var(--fs-heading);
+  font-weight: 600;
+  line-height: 1.7325rem;
+  transition: color 300ms ease-in-out;
+}
+
+.card--heading h2:hover,
+cite > a:hover {
+  color: var(--cyan);
+  cursor: pointer;
+}
+
+.card--description {
+  font-size: var(--fs-body);
+  font-weight: 300;
+}
+
+.card--details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card--price,
+.card--time-left {
+  display: flex;
+  gap: .405rem;
+  align-items: center;
+}
+
+.card--price {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+
+.card--about {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+}
+
+.card--about a {
+  color: var(--white);
+  transition: color 300ms ease-in-out;
+}
+
+
+.card--about h3 {
+  font-weight: 600;
+  line-height: 1.18125rem;
+}
+
+.avatar {
+  height:  2.0625rem;
+  width:  2.0625rem;
+  border-radius: 50%;
+  border: 1px solid var(--white);
+}
+
+.footer {
+  padding-top: 1rem;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media (min-width: 640px) {
+  :root {
+    --fs-base: 1rem;
+    --lh-base: 1.26rem;
+  }
+  
+}
+
